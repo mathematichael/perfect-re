@@ -38,6 +38,9 @@ class AbstractTask(abc.ABC):
         if self.task in ["boolq", "rte", "cb", "wic", "qnli", "qqp", "mrpc"]:
             datasets["test"] = datasets["validation"]
 
+        ["authority","betrayal","care","cheating","degradation","fairness","harm","loyalty","nonmoral","purity","subversion"]
+        
+        
         if self.task in ["mr", "cr", "subj", "SST-2", "trec",  "sst-5",
                          "boolq", "rte", "cb", "wic", "qnli", "qqp", "mrpc"]:
             # First filter, then shuffle, otherwise this results in a bug.
@@ -115,7 +118,7 @@ class BoolQ(AbstractTask):
     metric = [metrics.accuracy]
     
     def load_datasets(self):
-        return load_dataset('super_glue', self.task, script_version="master")
+        return load_dataset('super_glue', self.task)
         
 
 class RTE(BoolQ):
