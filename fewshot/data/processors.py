@@ -51,7 +51,7 @@ class AbstractProcessor(abc.ABC):
     def get_extra_fields(self, example=None):
        # If there is a need to keep extra information, here we keep a dictionary
        # from keys to their values.
-       return {} 
+       return None 
 
     def get_classification_parts(self, example):
           pass 
@@ -66,7 +66,6 @@ class AbstractProcessor(abc.ABC):
             return part_0, masks+part_1
         elif self.mask_position == '3':
             return part_0, part_1+masks 
-
 
 
 class MR(AbstractProcessor):
@@ -99,8 +98,8 @@ class MR(AbstractProcessor):
 class MFTC(MR):
     name = "MFTc"
     def get_verbalizers(self):
-        verbalizers_ = open("onehot_verbalized.txt", "r")
-        return list(verbalizers_)
+        verbalizers_list = open("onehot_verbalized.txt", "r")
+        return list(verbalizers_list)
 
 
 class CR(MR):
