@@ -146,7 +146,7 @@ class QQP(AbstractTask):
     metric = [metrics.accuracy, metrics.f1]
     
     def load_datasets(self):
-        return load_dataset('glue', self.task, script_version="master")
+        return load_dataset('glue', self.task)
 
 class QNLI(QQP):
     task = "qnli"
@@ -178,9 +178,3 @@ class AutoTask:
                 num_samples=num_samples, 
                 cache_dir=cache_dir, 
                 data_dir=data_dir)
-        raise ValueError(
-            "Unrecognized task {} for AutoTask Model: {}.\n"
-            "Task name should be one of {}.".format(
-                ", ".join(c for c in TASK_MAPPING.keys())
-            )
-        )
