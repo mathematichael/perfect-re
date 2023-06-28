@@ -35,12 +35,12 @@ from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
 
-from fewshot.third_party.models import (
+from fewshot.third_party.models.roberta.modeling_roberta import (
     RobertaForMaskedLM,
     RobertaConfig,
     RobertaForSequenceClassification
 )
-from fewshot.third_party.trainers import BaseTrainer
+from fewshot.third_party.trainers.trainer import BaseTrainer
 from fewshot.utils.utils import (
     load_json,
     get_adapter_config, 
