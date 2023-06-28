@@ -85,6 +85,61 @@ class MR(AbstractTask):
             }        
         return load_dataset("json", data_files=data_files, cache_dir=self.cache_dir, **dataset_args)
 
+   
+class Rauthority(MR):
+    task = "authority"
+    num_labels = 2
+    metric = [metrics.accuracy]
+        
+class Rbetrayal(MR):
+    task = "betrayal"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rcare(MR):
+    task = "care"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rcheating(MR):
+    task = "cheating"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rdegradation(MR):
+    task = "degradation"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rfairness(MR):
+    task = "fairness"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rharm(MR):
+    task = "harm"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rloyalty(MR):
+    task = "loyalty"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rnonmoral(MR):
+    task = "nonmoral"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rsubversion(MR):
+    task = "subversion"
+    num_labels = 2
+    metric = [metrics.accuracy]
+    
+class Rpurity(MR):
+    task = "purity"
+    num_labels = 2
+    metric = [metrics.accuracy]
 
 class CR(MR):
     task = "cr"
