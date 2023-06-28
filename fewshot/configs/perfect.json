@@ -1,5 +1,5 @@
 {
-   "task": "MFTC", 
+   "task": "MFTc", 
    "max_seq_length": 256, 
    "per_device_train_batch_size": 4,
    "K": 16,
