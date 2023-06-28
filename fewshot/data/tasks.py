@@ -36,7 +36,7 @@ class AbstractTask(abc.ABC):
         shuffled_train = datasets["train"].shuffle(seed=self.data_seed)
         if self.task in ["boolq", "rte", "cb", "wic", "qnli", "qqp", "mrpc"]:
             datasets["test"] = datasets["validation"]        
-        if self.task in ["mftc"]:
+        if self.task in ["MFTc"]:
             # First filter, then shuffle, otherwise this results in a bug.
             # Samples `num_samples` elements from train as training and development sets.
             sampled_train = []
