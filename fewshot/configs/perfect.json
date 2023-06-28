@@ -1,6 +1,6 @@
 {
    "task": "mftc", 
-   "max_seq_length": 256, 
+   "max_seq_length": 128, 
    "per_device_train_batch_size": 4,
    "K": 16,
    "data_dir": "MFTC_set",
