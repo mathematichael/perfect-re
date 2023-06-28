@@ -97,7 +97,7 @@ class MR(AbstractProcessor):
         return ["terrible", "great"]
 
 class MFTC(MR):
-    name = "mftc"
+    name = "MFTc"
     def get_verbalizers(self):
         with open("onehot_verbalized.txt", "r") as verbalizers:
             return list(verbalizers)
@@ -441,7 +441,7 @@ class MRPC(AbstractProcessor):
 
 PROCESSOR_MAPPING = OrderedDict(
     [
-        ('MFTC', MFTC)
+        ('MFTc', MFTC)
         ('mr', MR),
         ('cr', CR),
         ('subj', Subj),
