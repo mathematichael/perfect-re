@@ -3,7 +3,7 @@
    "max_seq_length": 256, 
    "per_device_train_batch_size": 4,
    "K": 16,
-   "data_dir": "MFTC",
+   "data_dir": "MFTC_set",
    "output_dir": "outputs",
    "model_name_or_path": "roberta-large",
    "do_train": true,
