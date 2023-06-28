@@ -99,8 +99,8 @@ class MR(AbstractProcessor):
 class MFTC(MR):
     name = "MFTc"
     def get_verbalizers(self):
-        verbalizers_list = open("onehot_verbalized.txt", "r")
-        return list(verbalizers_list)
+        verbalizers_ = open("onehot_verbalized.txt", "r")
+        return list(verbalizers_)
 
 
 class CR(MR):
