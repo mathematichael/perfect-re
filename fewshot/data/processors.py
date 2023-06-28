@@ -441,21 +441,21 @@ class MRPC(AbstractProcessor):
 PROCESSOR_MAPPING = OrderedDict(
     [
         ('MFTc', MFTC)
-        ('mr', MR),
-        ('cr', CR),
-        ('subj', Subj),
-        ('trec', Trec),
-        ('SST-2', SST2),
-        ('sst-5', SST5),
+        #('mr', MR),
+        #('cr', CR),
+        #('subj', Subj),
+        #('trec', Trec),
+        #('SST-2', SST2),
+        #('sst-5', SST5),
         #superglue datasets 
-        ('boolq', BoolQ),
-        ('rte', RTE),
-        ('cb', CB),
-        ('wic', WiC),
+        #('boolq', BoolQ),
+        #('rte', RTE),
+        #('cb', CB),
+        #('wic', WiC),
         #glue datasets 
-        ('qnli', QNLI),
-        ('qqp', QQP),
-        ('mrpc', MRPC)
+        #('qnli', QNLI),
+        #('qqp', QQP),
+        #('mrpc', MRPC)
     ]
 )
 
