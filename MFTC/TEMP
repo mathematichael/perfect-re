@@ -1,1 +1,25 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv('combined_dataset.csv')
+
+#ONE HOT ENCODING
+#we combine the class columns from the third onwards into a single class column
+df["classes"] = df.iloc[:, 2:].astype(str).apply(' '.join, axis=1)
+
+#have to assign these unique labels to an integer system
+df["classLabels"] = df['classes'].astype('category').cat.codes
+
+#train test 70:30 split
+train, test = train_test_split(df, test_size=0.3, random_state=42)
+
+#convert to json using pandas
+train[['classLabels', 'text']].rename(columns={'classLabels': 'label', 'text': 'source'}) \
+    .to_json("train.jsonl", orient='records', lines=True)
+
+#verbalizers
+df["verbalizers"] = df.iloc[:, 2:13].apply(
+    lambda row: ','.join([col for col, val in zip(df.columns[2:13], row) if val]), axis=1)
+
+df = df.sort_values(by="classLabels")
 
