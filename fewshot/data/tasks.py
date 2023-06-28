@@ -80,7 +80,7 @@ class MR(AbstractTask):
         return load_dataset("json", data_files=data_files, cache_dir=self.cache_dir, **dataset_args)
 
 class MFTC(MR):
-    task = "MFTC"
+    task = "MFTc"
     num_labels = 149
     metric = [metrics.accuracy]
 
@@ -165,7 +165,7 @@ class MRPC(QQP):
 
 TASK_MAPPING = OrderedDict(
     [
-        ('MFTC', MFTC)
+        ('MFTc', MFTC)
     ]
 )
 
