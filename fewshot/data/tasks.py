@@ -222,6 +222,18 @@ class MRPC(QQP):
 
 TASK_MAPPING = OrderedDict(
     [
+        ('authority', Rauthority),
+        ('betrayal', Rbetrayal),
+        ('care', Rcare),
+        ('cheating', Rcheating),
+        ('degradation', Rdegradation),
+        ('fairness', Rfairness),
+        ('harm', Rharm),
+        ('loyalty', Rloyalty),
+        ('nonmoral', Rnonmoral),
+        ('purity', Rpurity),
+        ('split', Rsplit),
+        ('subversion', Rsubversion),
         ('mr', MR),
         ('cr', CR),
         ('subj', Subj),
