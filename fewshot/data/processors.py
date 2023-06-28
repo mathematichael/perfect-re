@@ -440,40 +440,36 @@ class MRPC(AbstractProcessor):
 
 PROCESSOR_MAPPING = OrderedDict(
     [
-        ('MFTc', MFTC)
-        #('mr', MR),
-        #('cr', CR),
-        #('subj', Subj),
-        #('trec', Trec),
-        #('SST-2', SST2),
-        #('sst-5', SST5),
+        ('mr', MR),
+        ('cr', CR),
+        ('mftc', MFTC),
+        ('subj', Subj),
+        ('trec', Trec),
+        ('SST-2', SST2),
+        ('sst-5', SST5),
         #superglue datasets 
-        #('boolq', BoolQ),
-        #('rte', RTE),
-        #('cb', CB),
-        #('wic', WiC),
+        ('boolq', BoolQ),
+        ('rte', RTE),
+        ('cb', CB),
+        ('wic', WiC),
         #glue datasets 
-        #('qnli', QNLI),
-        #('qqp', QQP),
-        #('mrpc', MRPC)
+        ('qnli', QNLI),
+        ('qqp', QQP),
+        ('mrpc', MRPC)
     ]
 )
-
-class AutoTask:
+class AutoProcessor:
     @classmethod
-    def get(self, task, data_seed, num_samples, cache_dir, data_dir=None):
-        if task in TASK_MAPPING:
-            return TASK_MAPPING[task](
-                data_seed=data_seed, 
-                num_samples=num_samples, 
-                cache_dir=cache_dir, 
-                data_dir=data_dir)
-        # for c in TASK_MAPPING.keys():
-        #     print(c)
-        # raise ValueError(
-        #     "Unrecognized task {} for AutoTask Model: {}.\n"
-        #     "Task name should be one of {}.".format(
-        #         ", ".join(c for c in TASK_MAPPING.keys())
-        #     )
-        # )
-
+    def get(self, task, tokenizer, with_pattern, pattern_id, mask_position):
+        if task in PROCESSOR_MAPPING:
+            return PROCESSOR_MAPPING[task](
+                tokenizer=tokenizer,
+                with_pattern=with_pattern,
+                pattern_id=pattern_id,
+                mask_position=mask_position)
+        raise ValueError(
+            "Unrecognized task {} for AutoProcessor: {}.\n"
+            "Task name should be one of {}.".format(
+                ", ".join(c for c in PROCESSOR_MAPPING.keys())
+            )
+        )
