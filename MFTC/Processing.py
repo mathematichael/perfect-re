@@ -27,6 +27,6 @@ df = df.sort_values(by="OneHotInts")
 
 #the following will print the verbalizers as a list, which you can then copy and paste into a txt document for the verablizers file.
 #automating this part isnt easy since you cant save a python list into a text file. easy fix!
-#ours was saved as "onehot_verbalized" and you can find it in the utils folder.
+#ours was saved as "onehot_verbalized" and you can find it in the fewshot folder.
 df["verbalizers"].unique()
 
