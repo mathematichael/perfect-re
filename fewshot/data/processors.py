@@ -96,10 +96,43 @@ class MR(AbstractProcessor):
     def get_verbalizers(self):
         return ["terrible", "great"]
     
+class Rauthority(MR):
+    name = "authority"
+        
+class Rbetrayal(MR):
+    name = "betrayal"
+
+class Rcare(MR):
+    name = "care"
+
+class Rcheating(MR):
+    name = "cheating"
+
+class Rdegradation(MR):
+    name = "degradation"
+
+class Rfairness(MR):
+    name = "fairness"
+
+class Rharm(MR):
+    name = "harm"
+
+class Rloyalty(MR):
+    name = "loyalty"
+
+class Rnonmoral(MR):
+    name = "nonmoral"
+
+class Rsubversion(MR):
+    name = "subversion"
+
+class Rpurity(MR):
+    name = "purity"
+
 
 class CR(MR):
     name = "cr"
- 
+
 
 class SST2(MR):
     name = "SST-2"
@@ -435,6 +468,18 @@ class MRPC(AbstractProcessor):
 
 PROCESSOR_MAPPING = OrderedDict(
     [
+        ('authority', Rauthority),
+        ('betrayal', Rbetrayal),
+        ('care', Rcare),
+        ('cheating', Rcheating),
+        ('degradation', Rdegradation),
+        ('fairness', Rfairness),
+        ('harm', Rharm),
+        ('loyalty', Rloyalty),
+        ('nonmoral', Rnonmoral),
+        ('purity', Rpurity),
+        ('split', Rsplit),
+        ('subversion', Rsubversion),
         ('mr', MR),
         ('cr', CR),
         ('subj', Subj),
