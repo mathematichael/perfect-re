@@ -15,9 +15,9 @@ train, test = train_test_split(df, test_size=0.3, random_state=42)
 
 #convert to json using pandas
 train[['classLabels', 'text']].rename(columns={'classLabels': 'label', 'text': 'source'}) \
-    .to_json("train.jsonl", orient='records', lines=True)
+    .to_json("train.json", orient='records', lines=True)
 test[['classLabels', 'text']].rename(columns={'classLabels': 'label', 'text': 'source'}) \
-    .to_json("test.jsonl", orient='records', lines=True)
+    .to_json("test.json", orient='records', lines=True)
 
 #create verbalizers to assign meaning to our integer classifications
 df["verbalizers"] = df.iloc[:, 2:13].apply(
