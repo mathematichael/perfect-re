@@ -34,15 +34,9 @@ class AbstractTask(abc.ABC):
 
     def sample_datasets(self, datasets):
         shuffled_train = datasets["train"].shuffle(seed=self.data_seed)
-        
         if self.task in ["boolq", "rte", "cb", "wic", "qnli", "qqp", "mrpc"]:
-            datasets["test"] = datasets["validation"]
-
-        ["authority","betrayal","care","cheating","degradation","fairness","harm","loyalty","nonmoral","purity","subversion"]
-        
-        
-        if self.task in ["mr", "cr", "subj", "SST-2", "trec",  "sst-5",
-                         "boolq", "rte", "cb", "wic", "qnli", "qqp", "mrpc"]:
+            datasets["test"] = datasets["validation"]        
+        if self.task in ["mftc"]:
             # First filter, then shuffle, otherwise this results in a bug.
             # Samples `num_samples` elements from train as training and development sets.
             sampled_train = []
@@ -85,60 +79,9 @@ class MR(AbstractTask):
             }        
         return load_dataset("json", data_files=data_files, cache_dir=self.cache_dir, **dataset_args)
 
-   
-class Rauthority(MR):
-    task = "authority"
-    num_labels = 2
-    metric = [metrics.accuracy]
-        
-class Rbetrayal(MR):
-    task = "betrayal"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rcare(MR):
-    task = "care"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rcheating(MR):
-    task = "cheating"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rdegradation(MR):
-    task = "degradation"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rfairness(MR):
-    task = "fairness"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rharm(MR):
-    task = "harm"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rloyalty(MR):
-    task = "loyalty"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rnonmoral(MR):
-    task = "nonmoral"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rsubversion(MR):
-    task = "subversion"
-    num_labels = 2
-    metric = [metrics.accuracy]
-    
-class Rpurity(MR):
-    task = "purity"
-    num_labels = 2
+class MFTC(MR):
+    task = "MFTC"
+    num_labels = 149
     metric = [metrics.accuracy]
 
 class CR(MR):
@@ -222,33 +165,7 @@ class MRPC(QQP):
 
 TASK_MAPPING = OrderedDict(
     [
-        ('authority', Rauthority),
-        ('betrayal', Rbetrayal),
-        ('care', Rcare),
-        ('cheating', Rcheating),
-        ('degradation', Rdegradation),
-        ('fairness', Rfairness),
-        ('harm', Rharm),
-        ('loyalty', Rloyalty),
-        ('nonmoral', Rnonmoral),
-        ('purity', Rpurity),
-        ('split', Rsplit),
-        ('subversion', Rsubversion),
-        ('mr', MR),
-        ('cr', CR),
-        ('subj', Subj),
-        ('trec', Trec),
-        ('SST-2', SST2),
-        ('sst-5', SST5),
-        # superglue datasets.
-        ('boolq', BoolQ),
-        ('rte', RTE),
-        ('cb', CB),
-        ('wic', WiC),
-        # glue datasets
-        ('qqp', QQP),
-        ('qnli', QNLI),
-        ('mrpc', MRPC)
+        ('MFTC', MFTC)
     ]
 )
 
