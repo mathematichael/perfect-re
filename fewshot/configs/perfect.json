@@ -37,6 +37,7 @@
   "extra_embd_initializer_range": 1e-4,
   "overwrite_cache": true,
   "per_device_eval_batch_size": 2000,
+   "classifier_eval": true,
   "prototypical_eval": false,
   "eval_soft_pet_aggregation": "max",
   "prototypical_similarity": "euc",
