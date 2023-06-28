@@ -1,4 +1,4 @@
-import pandas as pd
+eimport pandas as pd
 from sklearn.model_selection import train_test_split
 
 df = pd.read_csv('combined_dataset.csv')
@@ -17,7 +17,7 @@ train, test = train_test_split(df, test_size=0.3, random_state=42)
 train[['classLabels', 'text']].rename(columns={'classLabels': 'label', 'text': 'source'}) \
     .to_json("train.jsonl", orient='records', lines=True)
 
-#verbalizers
+#create verbalizers to assign meaning to our integer classifications
 df["verbalizers"] = df.iloc[:, 2:13].apply(
     lambda row: ','.join([col for col, val in zip(df.columns[2:13], row) if val]), axis=1)
 
