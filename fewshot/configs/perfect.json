@@ -21,7 +21,7 @@
   "evaluation_strategy": "steps",
   "save_strategy": "steps",
   "save_total_limit": 1,
-  "overwrite_output_dir": true,
+  "overwrite_output_dir": false,
   "soft_pet": true,
   "soft_pet_loss": "extra_tokens",
   "extra_without_original": true,
