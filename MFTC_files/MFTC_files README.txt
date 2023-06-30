@@ -11,3 +11,7 @@ The -example folders are single runs of their namesake. They hold checkpoints if
 you need to move them to the fewshot folder and rename the output_dir of the corresponding config file in fewshot<data to 
 the name of the output folder in question. Additionally, if you want to do a completely fresh run, just dont move the
 example output folder to the fewshot folder. It will create a new one instead.
+
+######################EDIT#####################
+In order to manage to get these files onto github, I had to delete the checkpoint folders and models because theyre over 1GB each. I have them saved locally,
+so i can try get them to you another method if you'd like them!
